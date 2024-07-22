@@ -32,7 +32,7 @@ function endGame() {
     canvas.removeEventListener('click', () => {
         if (!isGameOver) bird.jump();
     });
-    startButton.innerText = 'Score: ' + getCurrentDiff() + '\n' + 'Start Again';
+    startButton.innerText = 'Score: ' + pipes.pipeCount + '\n' + 'Start Again';
     startButton.style.display = 'block'; // Show the start button
 }
 

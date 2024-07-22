@@ -6,6 +6,7 @@ class Pipes {
         this.pipeSpeed = 4;
         this.pipes = [];
         this.frameCount = 0;
+        this.pipeCount = -4;
 
         // Load the pipe image
         this.bottom = new Image();
@@ -30,6 +31,7 @@ class Pipes {
         if (this.frameCount % 100 === 0) {
             let top = Math.random() * (this.canvas.height / 2);
             let bottom = top + this.pipeGap;
+            this.pipeCount++;
             this.pipes.push({ x: this.canvas.width, top: top, bottom: bottom });
         }
         this.pipes = this.pipes.filter(pipe => pipe.x + this.pipeWidth > 0);
