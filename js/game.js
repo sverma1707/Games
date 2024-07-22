@@ -8,6 +8,7 @@ canvas.height = window.innerHeight;
 let bird, pipes, isGameOver;
 
 function initializeGame() {
+    start = Date.now();
     bird = new Bird(canvas);
     pipes = new Pipes(canvas);
     isGameOver = false;
@@ -18,12 +19,20 @@ function initializeGame() {
     gameLoop();
 }
 
+
+
+//create a function you can call anytime to get the diff
+function getCurrentDiff() {
+   return Math.round((Date.now() - start)/1000);
+
+}
+
 function endGame() {
     isGameOver = true;
     canvas.removeEventListener('click', () => {
         if (!isGameOver) bird.jump();
     });
-    startButton.innerText = 'Start Again';
+    startButton.innerText = 'Score: ' + getCurrentDiff() + '\n' + 'Start Again';
     startButton.style.display = 'block'; // Show the start button
 }
 

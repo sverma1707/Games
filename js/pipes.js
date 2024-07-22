@@ -3,21 +3,23 @@ class Pipes {
         this.canvas = canvas;
         this.pipeWidth = 80;
         this.pipeGap = 220;
-        this.pipeSpeed = 2;
+        this.pipeSpeed = 4;
         this.pipes = [];
         this.frameCount = 0;
 
         // Load the pipe image
-        this.image = new Image();
-        this.image.src = 'images/pipe2.png';
+        this.bottom = new Image();
+        this.bottom.src = 'images/pipe7.png';
+        this.top = new Image();
+        this.top.src = 'images/pipe6.png';
     }
 
     draw(ctx) {
         this.pipes.forEach(pipe => {
             // Draw top pipe
-            ctx.drawImage(this.image, pipe.x, 0, this.pipeWidth, pipe.top);
+            ctx.drawImage(this.top, pipe.x, 0, this.pipeWidth, pipe.top);
             // Draw bottom pipe
-            ctx.drawImage(this.image, pipe.x, pipe.bottom, this.pipeWidth, this.canvas.height - pipe.bottom);
+            ctx.drawImage(this.bottom, pipe.x, pipe.bottom, this.pipeWidth, this.canvas.height - pipe.bottom);
         });
     }
 
